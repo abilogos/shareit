@@ -26,4 +26,4 @@ Auth::routes(array_fill_keys(['reset','confirm','verify'], false));
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 //routes for file resources
-Route::resource('file', App\Http\Controllers\FileController::class);
+Route::resource('file', App\Http\Controllers\FileController::class)->middleware('auth');

@@ -1,24 +1,15 @@
-@extends('layouts.app')
+@extends('layouts.card')
 
-@section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Dashboard') }}</div>
-
-                <div class="card-body">
-                    <h3 >
-                        {{__('You can Upload a file and share it with your friends')}}
-                    </h3>
-                    <br/>
-                    <a id="btn-file-create" class="btn btn-primary" href="{{route('file.create')}}">
-                        <i class="fas fa-cloud-upload-alt animated faa-vertical faa-slow"></i>
-                        Upload a File
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+@section('card-header')
+    {{ __('Dashboard') }}
+@endsection
+@section('card-body')
+    <h3 >
+        {{__('You can Upload a file and share it with your friends')}}
+    </h3>
+    <br/>
+    <a id="btn-file-create" class="btn btn-primary" href="{{route('file.create')}}">
+        <i class="fas fa-cloud-upload-alt animated faa-vertical faa-slow"></i>
+        Upload a File
+    </a>
 @endsection
