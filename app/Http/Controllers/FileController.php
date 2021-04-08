@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\File;
 use Illuminate\Http\Request;
+use \App\Rules\NotInMime;
 
 class FileController extends Controller
 {
@@ -35,7 +36,16 @@ class FileController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //validating requested file.
+        $request->validate([
+            'file' => [
+                'required',
+                'file',
+                'max:10240',
+                new NotInMime(['exe', 'php', 'bmp'])
+                ]
+            ]);
+        return "s";
     }
 
     /**

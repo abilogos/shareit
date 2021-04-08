@@ -4,7 +4,7 @@
     {{ __('Upload File To Share') }}
 @endsection
 @section('card-body')
-    <form  class="form" method="post" action="{{route('file.store')}}">
+    <form  class="form" method="post" action="{{route('file.store')}}" enctype="multipart/form-data">
         @csrf
         <input type="file" name="file" id="file-input" class="form-control "/>
         <br/>
@@ -13,7 +13,7 @@
             Upload
         </button>
         @error('file')
-            <span class="invalid-feedback" role="alert">
+            <span style="color:red;" role="alert">
                 <strong>{{ $message }}</strong>
             </span>
         @enderror
