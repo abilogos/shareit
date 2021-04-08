@@ -16,3 +16,11 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+//this is going to create required routes for Authentication process via laravel/ui package
+//setting not required routes to false with array_fill_keys
+//@link https://github.com/laravel/ui/blob/3.x/src/AuthRouteMethods.php
+Auth::routes(array_fill_keys(['reset','confirm','verify'], false));
+
+//route for user`s home
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
