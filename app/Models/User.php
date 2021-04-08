@@ -40,4 +40,14 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /**
+     * this method will return the user`s owned files models
+     *
+     * @return Illuminate\Database\Eloquent\Relations\HasMany related file models
+     */
+    public function files()
+    {
+        return $this->hasMany(\App\Models\File::class);
+    }
 }
