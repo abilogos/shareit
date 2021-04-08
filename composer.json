@@ -14,6 +14,7 @@
         "laravel/ui": "^3.2"
     },
     "require-dev": {
+        "dczajkowski/auth-tests": "^8.0",
         "facade/ignition": "^2.5",
         "fakerphp/faker": "^1.9.1",
         "laravel/dusk": "^6.15",

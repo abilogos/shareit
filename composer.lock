@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "22724918b5edea72539d86d6e5e6ee8f",
+    "content-hash": "28dc12a451854abdce65266b0a56126e",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -4689,6 +4689,51 @@
         }
     ],
     "packages-dev": [
+        {
+            "name": "dczajkowski/auth-tests",
+            "version": "8.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/DCzajkowski/auth-tests.git",
+                "reference": "44257553124a83760a51f6fbf4a7134781d4edfa"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/DCzajkowski/auth-tests/zipball/44257553124a83760a51f6fbf4a7134781d4edfa",
+                "reference": "44257553124a83760a51f6fbf4a7134781d4edfa",
+                "shasum": ""
+            },
+            "require": {
+                "laravel/framework": "^8.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "DCzajkowski\\AuthTests\\AuthTestsServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "files": [
+                    "src/AuthTestsServiceProvider.php",
+                    "src/Console/Commands/AuthTestsMakeCommand.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Dariusz Czajkowski",
+                    "email": "dare.czajkowski@gmail.com",
+                    "homepage": "https://dczajkowski.com"
+                }
+            ],
+            "description": "Authentication tests for Laravel built-in authentication module.",
+            "time": "2020-09-12T19:09:02+00:00"
+        },
         {
             "name": "doctrine/instantiator",
             "version": "1.4.0",
