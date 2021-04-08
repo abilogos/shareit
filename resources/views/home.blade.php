@@ -8,13 +8,14 @@
                 <div class="card-header">{{ __('Dashboard') }}</div>
 
                 <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-
-                    {{ __('You are logged in!') }}
+                    <h3 >
+                        {{__('You can Upload a file and share it with your friends')}}
+                    </h3>
+                    <br/>
+                    <a class="btn btn-primary" href="">
+                        <i class="fas fa-cloud-upload-alt animated faa-vertical faa-slow"></i>
+                        Upload a File
+                    </a>
                 </div>
             </div>
         </div>
