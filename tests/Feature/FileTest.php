@@ -102,6 +102,7 @@ class FileTest extends TestCase
             $response->assertStatus(200);
         //Storage::disk('test_share')->assertExists($fakeFile->hashName());
         } else {
+            //redirect to file uploading page
             $response->assertStatus(302);
             //Storage::disk('test_share')->assertMissing($fakeFile->hashName());
         }

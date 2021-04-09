@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\File;
 use Illuminate\Http\Request;
 use \App\Rules\NotInMime;
+use Illuminate\Support\Facades\Auth;
 
 class FileController extends Controller
 {
@@ -45,7 +46,20 @@ class FileController extends Controller
                 new NotInMime(['exe', 'php', 'bmp'])
                 ]
             ]);
-        return "s";
+        //httpRequest file
+        $requestFile = $request->file("file");
+
+        //generating file row in database
+        $fileModel = Auth::user()->files()->save(
+            new File([
+                'name' => $requestFile->getClientOriginalName()
+            ])
+        );
+
+        //move file in storage/app/shares folder
+        $address = $requestFile->storeAs("shares", $fileModel->id);
+        $fileLink = route('file.show', ['file'=>$fileModel]);
+        return view('file.stored', compact('fileLink'));
     }
 
     /**
