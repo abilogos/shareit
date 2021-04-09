@@ -37,7 +37,10 @@ class NotInMime implements Rule
     {
         // validateMimes() from ValidatesAttributes Trait will check for certain mimetypes.
         // we just need to invert it.
-        return !$this->validateMimes($attribute, $value, $this->params);
+        return !(
+            $this->validateMimes($attribute, $value, $this->params) ||
+            in_array(trim(strtolower($value->getClientOriginalExtension())), $this->params)
+        );
     }
 
     /**
