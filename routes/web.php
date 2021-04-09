@@ -29,3 +29,4 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::resource('file', App\Http\Controllers\FileController::class)->except('show')->middleware('auth');
 //file.show route has get seprated from other routes to get acceable without authentication
 Route::get('file/{file}', [App\Http\Controllers\FileController::class,'show'])->name('file.show');
+Route::get('file/{file}/download', [App\Http\Controllers\FileController::class,'download'])->name('file.download');

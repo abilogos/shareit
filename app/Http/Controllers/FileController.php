@@ -63,14 +63,24 @@ class FileController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * Display the specified file details.
      *
      * @param  \App\Models\File  $file
      * @return \Illuminate\Http\Response
      */
     public function show(File $file)
     {
-        //
+        return view('file.show', compact('file'));
+    }
+
+    /**
+     * Download a file and count downloaded time
+     *
+     * @param  File   $file
+     * @return \Illuminate\Http\Response file downloading response
+     */
+    public function download(File $file)
+    {
     }
 
     /**
