@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use App\RoutesWithFakeIds;
 
 /**
  * File Model is a DataModel for Storing File Relaed data into database.
@@ -17,6 +18,7 @@ class File extends Model
 {
     use HasFactory;
     use SoftDeletes;
+    use RoutesWithFakeIds;
 
     /**
      *  mass assignment attriutes

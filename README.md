@@ -1,3 +1,8 @@
+##Requirments
+
+php 7.4
+php extentions:  BC Math - GMP 
+
 ##Setup Steps
 
 install php dependencies using composer:

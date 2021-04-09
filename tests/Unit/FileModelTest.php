@@ -56,6 +56,18 @@ class FileModelTest extends TestCase
         $this->assertEquals($this->createFakeFileModel()->download_count, 0);
     }
 
+
+    public function testFakeId()
+    {
+        $file = $this->createFakeFileModel();
+        $id = $file->id;
+        $fakeId = $file->getRouteKey();
+
+        $this->assertNotEquals($fakeId, $id);
+        // $file->resolveRouteBinding($fakeId) would retrive File Object
+        $this->assertEquals($file->resolveRouteBinding($fakeId)->id, $id);
+    }
+
     /**
      * this method will create a fake file model with given user_id
      *
