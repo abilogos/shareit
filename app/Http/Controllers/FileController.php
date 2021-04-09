@@ -16,7 +16,6 @@ class FileController extends Controller
      */
     public function index()
     {
-        //
     }
 
     /**
@@ -113,29 +112,6 @@ class FileController extends Controller
         } else {
             return response()->download(storage_path($storagePath), $title);
         }
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\File  $file
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(File $file)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\File  $file
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, File $file)
-    {
-        //
     }
 
     /**

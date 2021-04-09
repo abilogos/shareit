@@ -26,7 +26,11 @@ Auth::routes(array_fill_keys(['reset','confirm','verify'], false));
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 //routes for file resources
-Route::resource('file', App\Http\Controllers\FileController::class)->except('show')->middleware('auth');
+Route::resource('file', App\Http\Controllers\FileController::class)
+    ->except(['show','edit','update'])
+    ->middleware('auth');
+
 //file.show route has get seprated from other routes to get acceable without authentication
 Route::get('file/{file}', [App\Http\Controllers\FileController::class,'show'])->name('file.show');
-Route::get('file/{file}/download', [App\Http\Controllers\FileController::class,'download'])->name('file.download');
+Route::get('file/{file}/download', [App\Http\Controllers\FileController::class,'download'])
+    ->name('file.download');
