@@ -14,8 +14,15 @@ class FileController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
+        //setting and retriving page_size with session
+        $pageSize = $request->page_size??session('page_size_file_index', 15);
+        session(['page_size_file_index' => $pageSize]);
+
+        //all files of authenticated user
+        $files = File::where('user_id', Auth::id())->paginate($pageSize);
+        return view('file.index', compact('files'));
     }
 
     /**
@@ -57,7 +64,7 @@ class FileController extends Controller
 
         //move file in storage/app/shares folder
         $address = $requestFile->storeAs("shares", $fileModel->id);
-        $fileLink = route('file.show', ['file'=>$fileModel]);
+        $fileLink = $fileModel->link;
         return view('file.stored', compact('fileLink'));
     }
 

@@ -12,4 +12,8 @@
         <i class="fas fa-cloud-upload-alt animated faa-vertical faa-slow"></i>
         Upload a File
     </a>
+    <a id="btn-file-index" class="btn btn-info" href="{{route('file.index')}}">
+        <i class="fas fa-th-list animated faa-pulse faa-slow"></i>
+        View List of Uploaded Files
+    </a>
 @endsection

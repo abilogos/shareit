@@ -65,4 +65,13 @@ class File extends Model
         $this->download_count++;
         $this->save();
     }
+
+    /**
+     * this accessor generate file link for download page
+     * @return [type] [description]
+     */
+    public function getLinkAttribute()
+    {
+        return route('file.show', ['file'=>$this]);
+    }
 }
