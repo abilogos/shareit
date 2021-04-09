@@ -56,8 +56,11 @@ class FileModelTest extends TestCase
         $this->assertEquals($this->createFakeFileModel()->download_count, 0);
     }
 
-
-    public function testFakeId()
+    /**
+     * This method will test if id and fakeid are convertable to each other or not
+     * @return void
+     */
+    public function testFakeId() : void
     {
         $file = $this->createFakeFileModel();
         $id = $file->id;
@@ -66,6 +69,26 @@ class FileModelTest extends TestCase
         $this->assertNotEquals($fakeId, $id);
         // $file->resolveRouteBinding($fakeId) would retrive File Object
         $this->assertEquals($file->resolveRouteBinding($fakeId)->id, $id);
+    }
+
+    /**
+     * This method will test hitDownload method
+     *
+     * @return void
+     */
+    public function testHitDownload() : void
+    {
+        $file = $this->createFakeFileModel();
+        $this->assertEquals($file->download_count, 0);
+
+        $file->hitDownload();
+        $this->assertEquals($file->download_count, 1);
+
+        $fakeDownloadCount = \random_int(0, 1000000);
+        $file->download_count = $fakeDownloadCount;
+        $file->hitDownload();
+        $fakeDownloadCount++;
+        $this->assertEquals($file->download_count, $fakeDownloadCount);
     }
 
     /**

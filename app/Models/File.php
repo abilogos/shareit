@@ -44,4 +44,25 @@ class File extends Model
     {
         return $this->belogsTo(\App\Models\User::class);
     }
+
+    /**
+     * this accessor method will return file_path related to storage root
+     *
+     * @return string file path
+     */
+    public function getStoragePathAttribute() : string
+    {
+        return 'app/shares/'.($this->id);
+    }
+
+    /**
+     * this method will increase The download_count 1
+     *
+     * @return void
+     */
+    public function hitDownload() : void
+    {
+        $this->download_count++;
+        $this->save();
+    }
 }

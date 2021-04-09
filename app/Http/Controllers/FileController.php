@@ -81,6 +81,38 @@ class FileController extends Controller
      */
     public function download(File $file)
     {
+        $file->hitDownload();
+        return $this->fileDownloadResponse($file->storage_path, $file->name);
+    }
+
+    /**
+     * This method will clean response header for file downloading
+     *
+     * @return void
+     */
+    private function clean_response() : void
+    {
+        if (ob_get_length()) {
+            ob_end_clean();
+        }
+    }
+
+    /**
+     * this method prepare a download response if file exists
+     *
+     * @param  string $storagePath the file_path in storage folder
+     * @param  string $title       the file name to download
+     * @return \Illuminate\Http\Response file downloading response
+     */
+    private function fileDownloadResponse($storagePath, $title)
+    {
+        $this->clean_response();
+
+        if (!file_exists(storage_path($storagePath))) {
+            return abort(404);
+        } else {
+            return response()->download(storage_path($storagePath), $title);
+        }
     }
 
     /**
