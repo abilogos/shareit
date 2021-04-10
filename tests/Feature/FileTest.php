@@ -62,7 +62,7 @@ class FileTest extends TestCase
      *
      * @return void
      */
-    public function validFileUpload() : void
+    public function testValidFileUpload() : void
     {
         $this->assertUploadFile('normal.jpeg', 5000, 'image/jpeg', true);
     }

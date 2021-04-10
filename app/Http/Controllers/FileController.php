@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Auth;
 class FileController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Display a listing of the user owning files.
      *
      * @return \Illuminate\Http\Response
      */
@@ -122,13 +122,14 @@ class FileController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Remove the specified file from storage.
      *
      * @param  \App\Models\File  $file
      * @return \Illuminate\Http\Response
      */
     public function destroy(File $file)
     {
-        //
+        $file->delete();
+        return back();
     }
 }

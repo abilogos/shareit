@@ -29,7 +29,15 @@
                     <td><a href="{{$file->link}}">{{$file->link}}</a></td>
                     <td title="{{$file->created_at->diffForHumans()}}">{{$file->created_at}}</td>
                     <td>{{$file->download_count}}</td>
-                    <td></td>
+                    <td>
+                        <form method="post" action="{{route('file.destroy',['file' => $file])}}">
+                            @csrf
+                            @method('DELETE')
+                            <button class="btn" style="background: none;">
+                                <i style="color: red;" class="fa fa-trash"></i>
+                            </button>
+                        </form>
+                    </td>
                 </tr>
             @endforeach
         </tbody>
