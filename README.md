@@ -1,10 +1,10 @@
-##Requirments
+## Requirments
 
 php 7.4
 composer
 php extentions:  BC Math - GMP
 
-##Setup Steps
+## Setup Steps
 
 install php dependencies using composer:
 ```sh
@@ -29,7 +29,7 @@ php artisan migrate
 
 be sure to have dev dependencies & proper chromium driver for dusk :
 
-*your chromium driver*
+*your chromium driver should be mention, mine was 86*
 ```sh
 composer install --require-dev
 php artisan dusk:chrome-driver 86
