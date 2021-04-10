@@ -74,7 +74,7 @@ class FileTest extends TestCase
      */
     private function authenticate()
     {
-        $user = User::factory()->make();
+        $user = User::factory()->create();
         return $this->actingAs($user);
     }
 
