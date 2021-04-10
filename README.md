@@ -1,7 +1,8 @@
 ##Requirments
 
 php 7.4
-php extentions:  BC Math - GMP 
+composer
+php extentions:  BC Math - GMP
 
 ##Setup Steps
 
@@ -28,6 +29,7 @@ php artisan migrate
 
 be sure to have dev dependencies & proper chromium driver for dusk :
 
+*your chromium driver*
 ```sh
 composer install --require-dev
 php artisan dusk:chrome-driver 86

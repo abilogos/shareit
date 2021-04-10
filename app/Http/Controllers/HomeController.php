@@ -1,5 +1,8 @@
 <?php
-
+/**
+ * @author Abilogos
+ * @license GPL3
+ */
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
